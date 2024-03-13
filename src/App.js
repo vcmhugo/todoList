@@ -1,41 +1,44 @@
-import logo from './platzi.webp';
-import './App.css';
+import { TodoCounter } from "./TodoCounter";
+import { TodoSearch } from "./TodoSearch";
+import { TodoList } from './TodoList';
+import { TodoItems } from "./TodoItem";
+import { TodoButton } from "./TodoButton";
+import React from "react";
+
+const defaultTodos = [
+  {
+  texto:"prueba uno",
+  completed:false
+  },
+  {
+    texto:"prueba dos",
+    completed:true
+  },
+  {
+    texto:"prueba tres",
+    completed:false
+  }
+];
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
 
-      <TodoItems></TodoItems>
-      <TodoItems></TodoItems>
-      <TodoItems></TodoItems>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita el archivo <code>src/App.js</code> y guarda para recargar.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Aprendamos react
-        </a>
-      </header>
-    </div>
+      <TodoCounter complete={15} total={23}/>
+      <TodoSearch />
+
+      <TodoList>
+        {defaultTodos.map(todo=>(
+          <TodoItems  
+            key={todo.texto} 
+            text={todo.texto} 
+            complete={todo.completed}/>
+        ))}
+      </TodoList>
+
+      <TodoButton />
+    </React.Fragment>
   );
-}
-
-function TodoItems(){
-
-  return(
-    <li>
-      <span>V</span>
-      <p>tarea uno</p>
-      <span>X</span>
-    </li>
-  );
-
 }
 
 export default App;
