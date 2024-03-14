@@ -1,8 +1,10 @@
 
+import './TodoSearch.css';
+
 function TodoSearch(){
 
     return(
-        <input placeholder="buscar"></input>
+        <input className="txtBuscar" placeholder="buscar"></input>
     );
 
 
