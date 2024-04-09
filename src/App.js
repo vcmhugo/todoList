@@ -10,7 +10,7 @@ import React from "react";
 const defaultTodos = [
   {
   texto:"prueba uno",
-  completed:false
+  completed:true
   },
   {
     texto:"prueba dos",
