@@ -1,0 +1,24 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .complete {
+    color: #4caf50; /* verde */
+  }
+  
+  .incomplete {
+    color: #e0e0e0; /* gris */
+  }
+  
+  .delete-btn {
+    margin-left: auto;
+    cursor: pointer;
+    color: #f44336; /* rojo */
+  }
+  
+  .delete-btn:hover {
+    color: #d32f2f; /* tono más oscuro de rojo al pasar el ratón */
+  }
