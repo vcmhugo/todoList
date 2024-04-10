@@ -19,14 +19,26 @@ const defaultTodos = [
   {
     texto:"prueba tres",
     completed:false
+  },
+  {
+    texto:"prueba cuadro",
+    completed:false
   }
 ];
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState('');
+
+  console.log('Los usuraio buscan'+searchValue);
+
+  const completedTodos = todos.filter(todo=>!!todo.completed).length;
+  const totalTodos = todos.length;
+
   return (
     <>
-      <TodoCounter complete={15} total={23}/>
-      <TodoSearch />
+      <TodoCounter complete={completedTodos} total={totalTodos}/>
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
 
       <TodoButton />
 
