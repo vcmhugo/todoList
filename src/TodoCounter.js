@@ -4,7 +4,8 @@ import './TodoCounter.css'
 function TodoCounter({total,complete}){
 
     return(
-      <h1>Has completado {complete} de {total} todos</h1>
+      complete===total ? <h1>Has completado todos los tofos</h1>
+      : <h1>Has completado {complete} de {total} todos</h1>
     );
   
   }

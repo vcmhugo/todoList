@@ -35,6 +35,29 @@ function App() {
   const completedTodos = todos.filter(todo=>!!todo.completed).length;
   const totalTodos = todos.length;
 
+  const searchsTodos = todos.filter((todo)=>{
+
+    return todo.texto.toLowerCase().includes(searchValue.toLowerCase());
+
+  });
+
+  const completeTodo = (text)=>{
+    const newTodos = [...todos];
+    let todoindex = newTodos.findIndex((todo)=>todo.texto===text);
+    newTodos[todoindex].completed = true;
+    setTodos(newTodos);
+
+  }
+
+  const removeTodo = (text)=>{
+
+    const newTodos = [...todos];
+    let todoindex = newTodos.findIndex((todo)=>todo.texto===text);
+    newTodos.splice(todoindex,1);
+    setTodos(newTodos);
+
+  }
+
   return (
     <>
       <TodoCounter complete={completedTodos} total={totalTodos}/>
@@ -43,11 +66,14 @@ function App() {
       <TodoButton />
 
       <TodoList>
-        {defaultTodos.map(todo=>(
+        {searchsTodos.map(todo=>(
           <TodoItems  
             key={todo.texto} 
             text={todo.texto} 
-            complete={todo.completed}/>
+            complete={todo.completed}
+            onComplete={()=>completeTodo(todo.texto)}
+            onRemove={()=>removeTodo(todo.texto)}  
+            />
         ))}
       </TodoList>
 
