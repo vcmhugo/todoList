@@ -30,7 +30,7 @@ function App() {
   const [todos, setTodos] = React.useState(defaultTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
-  console.log('Los usuraio buscan'+searchValue);
+  //console.log('Los usuraio buscan'+searchValue);
 
   const completedTodos = todos.filter(todo=>!!todo.completed).length;
   const totalTodos = todos.length;
